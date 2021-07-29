@@ -1,0 +1,40 @@
+= Middleman Template Repository
+
+:shields: https://shields.io
+:slug: bbenno/middleman-template
+:live-url: https%3A%2F%2Fgithub.com/{slug}
+
+image:{shields}/website?url={live-url}[Website]
+image:https://github.com/{slug}/actions/workflows/validate.yml/badge.svg[Validation, link="https://github.com/{slug}/actions/workflows/validate.yml"]
+image:{shields}/w3c-validation/html?logo=w3c&targetUrl={live-url}[W3C Validation]
+
+A template repository for https://middlemanapp.com[Middleman] project using http://slim-lang.com[Slim].
+
+== Setup
+
+.Prerequisites
+[IMPORTANT]
+--
+* https://www.ruby-lang.org[Ruby] with the version specified in link:.ruby-version[]
+* https://bundler.io[Bundler]
+--
+
+. Install dependencies
++
+[source]
+----
+bundle install
+----
+. Build website
++
+[source]
+----
+bundle exec middleman build
+----
+
+== Usage
+
+[source]
+----
+bundle exec middleman server
+----

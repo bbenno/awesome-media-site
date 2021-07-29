@@ -1,0 +1,38 @@
+= Change log
+
+:slug: user/project
+:compare-url: https://github.com/{slug}/compare
+
+All notable changes to this project will be documented in this file.
+
+The format is based on https://keepachangelog.com[Keep a Changelog] and this project adheres to https://semver.org/spec/v2.0.0.html[Semantic Versioning].
+
+////
+
+== {compare-url}/v1.0.0...HEAD[Unreleased] - 2021-01-01
+
+=== Added
+
+// new features
+
+=== Changed
+
+// changes in existing features
+
+=== Deprecated
+
+// soon-to-be removed features
+
+=== Removed
+
+// now removed features
+
+=== Fixed
+
+// bug fixes
+
+=== Security
+
+// case of vulnerabilities
+
+////

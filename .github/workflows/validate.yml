@@ -1,0 +1,27 @@
+name: Validation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  w3-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7.4
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Build website
+      run: bundle exec middleman build
+
+    - name: HTML5Validator
+      uses: Cyb3r-Jak3/html5validator-action@v0.6.1
+      with:
+        root: build
+        css: true
