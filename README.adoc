@@ -1,12 +1,13 @@
 = Middleman Template Repository
 
 :shields: https://shields.io
-:slug: bbenno/middleman-template
-:live-url: https%3A%2F%2Fgithub.com/{slug}
+:slug: awesome-media-site
+:repo: bbenno/{slug}
+:website: https%3A%2F%2Fbbenno.github.io/{slug}
 
-image:{shields}/website?url={live-url}[Website]
+image:{shields}/website?url={website}[Website]
 image:https://github.com/{slug}/actions/workflows/validate.yml/badge.svg[Validation, link="https://github.com/{slug}/actions/workflows/validate.yml"]
-image:{shields}/w3c-validation/html?logo=w3c&targetUrl={live-url}[W3C Validation]
+image:{shields}/w3c-validation/html?logo=w3c&targetUrl={website}[W3C Validation]
 
 A template repository for https://middlemanapp.com[Middleman] project using http://slim-lang.com[Slim].
 
