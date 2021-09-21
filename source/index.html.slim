@@ -1,1 +1,7 @@
-h1 Welcome!
+h1 Awesome Media
+h2 Movies
+ul
+	- data.movies.movies.each do |movie|
+		li
+			a href="#{movie.imdb}"
+				| #{movie.title} (#{movie.year})
