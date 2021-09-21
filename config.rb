@@ -12,8 +12,8 @@ activate :robots,
          rules: [{ user_agent: '*', allow: ['/'] }],
          sitemap: '/sitemap.xml'
 
-acitvate :sitemap,
-         gzip: true
+activate :sitemap,
+         gzip: true,
          hostname: 'https://benno.github.io/middleman-template'
 
 ##
