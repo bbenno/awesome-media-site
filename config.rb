@@ -14,7 +14,7 @@ activate :robots,
 
 activate :sitemap,
          gzip: true,
-         hostname: 'https://benno.github.io/middleman-template'
+         hostname: 'https://bbenno.github.io/awesome-media-site'
 
 ##
 
