@@ -1,5 +1,7 @@
 ## Activate and configure extensions
 
+activate :aria_current
+
 activate :autoprefixer do |prefix|
   prefix.browsers = "last 2 versions"
 end
