@@ -2,14 +2,14 @@
 
 :shields: https://shields.io
 :slug: awesome-media-site
-:repo: bbenno/{slug}
+:github: https://github.com/bbenno/{slug}
 :website: https%3A%2F%2Fbbenno.github.io/{slug}
 
 image:{shields}/website?url={website}[Website]
-image:https://github.com/{slug}/actions/workflows/validate.yml/badge.svg[Validation, link="https://github.com/{slug}/actions/workflows/validate.yml"]
+image:{github}/actions/workflows/validate.yml/badge.svg[Validation, link="{github}/actions/workflows/validate.yml"]
 image:{shields}/w3c-validation/html?logo=w3c&targetUrl={website}[W3C Validation]
 
-A template repository for https://middlemanapp.com[Middleman] project using http://slim-lang.com[Slim].
+Website of https://github.com/bbenno/awesome-media[awesome-media] generated with https://middlemanapp.com[Middleman] using http://slim-lang.com[Slim].
 
 == Setup
 
@@ -22,20 +22,23 @@ A template repository for https://middlemanapp.com[Middleman] project using http
 
 . Install dependencies
 +
-[source]
+[source, shell]
 ----
 bundle install
 ----
 . Build website
 +
-[source]
+[source, shell]
 ----
 bundle exec middleman build
 ----
 
 == Usage
 
-[source]
+. Start the server
++
+[source, shell]
 ----
 bundle exec middleman server
 ----
+. Open the printed URL or http://localhost:4567[] in your browser
