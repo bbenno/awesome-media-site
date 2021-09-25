@@ -4,7 +4,7 @@ h2 = t(:movies).capitalize
 	- data.movies.movies.each do |movie|
 		.col
 			.card.h-100
-				/ img.card-img-top src="..." alt="..."
+				= image_tag "#{movie.tmdb}.jpg", class: 'card-img-top', alt: "Poster of '#{movie.title}'"
 				.card-body
 					h5.card-title
 						| #{movie.title} (#{movie.year})

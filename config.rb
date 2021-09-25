@@ -56,6 +56,13 @@ page '/*.txt', layout: false
 #   end
 # end
 
+## External pipeline
+
+activate :external_pipeline,
+  name: :download_images,
+  command: "./lib/download_images.rb",
+  source: 'assets/images'
+
 ## Build-specific configuration
 
 configure :build do
