@@ -3,5 +3,7 @@ h2 = t(:movies).capitalize
 ul
 	- data.movies.movies.each do |movie|
 		li
-			a href="#{movie.imdb}"
-				| #{movie.title} (#{movie.year})
+			| #{movie.title} (#{movie.year})
+			br
+			a> href="https://www.imdb.com/title/#{movie.imdb}/" IMDb
+			a> href="https://www.themoviedb.org/movie/#{movie.tmdb}/" The Movie Database (TMDB)
