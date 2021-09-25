@@ -6,10 +6,13 @@ h2 = t(:movies).capitalize
 			.card.h-100
 				= image_tag "#{movie.tmdb}.jpg", class: 'card-img-top', alt: "Poster of '#{movie.title}'"
 				.card-body
-					h5.card-title
-						| #{movie.title} (#{movie.year})
-						br
-						a> href="https://www.imdb.com/title/#{movie.imdb}/" IMDb
-						a> href="https://www.themoviedb.org/movie/#{movie.tmdb}/" The Movie Database (TMDB)
-					.card-text Lorem Ipsum
-				/ .card-footer
+					h5.card-title.text-center #{movie.title} (#{movie.year})
+					/ .card-text Lorem Ipsum
+				.card-footer
+					.row.my-2.text-center
+						.col
+							a> href="https://www.imdb.com/title/#{movie.imdb}/"
+								= image_tag 'IMDb_Logo.svg', alt: 'IMDb Logo', height:'20ex'
+						.col
+							a> href="https://www.themoviedb.org/movie/#{movie.tmdb}/"
+								= image_tag 'TMDB_Logo.svg', alt: 'The Movie Database (TMDB)', height: '20ex'
