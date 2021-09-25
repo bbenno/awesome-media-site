@@ -9,6 +9,8 @@ on:
 jobs:
   w3-validate:
     runs-on: ubuntu-latest
+    env:
+      TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
 
     steps:
     - uses: actions/checkout@v2
