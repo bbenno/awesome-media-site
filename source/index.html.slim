@@ -1,9 +1,15 @@
 h1 Awesome Media
 h2 = t(:movies).capitalize
-ul
+.row.row-cols-1.row-cols-md-3.g-4
 	- data.movies.movies.each do |movie|
-		li
-			| #{movie.title} (#{movie.year})
-			br
-			a> href="https://www.imdb.com/title/#{movie.imdb}/" IMDb
-			a> href="https://www.themoviedb.org/movie/#{movie.tmdb}/" The Movie Database (TMDB)
+		.col
+			.card.h-100
+				/ img.card-img-top src="..." alt="..."
+				.card-body
+					h5.card-title
+						| #{movie.title} (#{movie.year})
+						br
+						a> href="https://www.imdb.com/title/#{movie.imdb}/" IMDb
+						a> href="https://www.themoviedb.org/movie/#{movie.tmdb}/" The Movie Database (TMDB)
+					.card-text Lorem Ipsum
+				/ .card-footer
