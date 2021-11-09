@@ -71,6 +71,8 @@ configure :build do
 
   # Add assets fingerprinting to avoid cache issues
   activate :asset_hash
+  # Relative assets needed to deploy to GitHub Pages
+  activate :relative_assets
 end
 
 configure :development do
