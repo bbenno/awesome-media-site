@@ -42,7 +42,7 @@ YAML.load(File.open('data/movies.yml'))['movies'].each do |movie|
 
   image_uri = URI("#{tmdb_image_base_url}#{tmdb_image_file_size}#{file_path}")
   ext = File.extname(file_path)
-  filename = File.join('source', 'assets', 'images', "#{movie['tmdb']}#{ext}")
+  filename = File.join('source', 'assets', 'images', "poster-#{movie['tmdb']}#{ext}")
 
   File.write(filename, Net::HTTP.get(image_uri))
 
