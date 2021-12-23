@@ -6,7 +6,7 @@ h2 = t(:movies).capitalize
 			.card.h-100
 				= image_tag "poster-#{movie.tmdb}.jpg", class: 'card-img-top', alt: "Poster of '#{movie.title}'"
 				.card-body
-					h5.card-title.text-center #{movie.title} (#{movie.year})
+					h5.card-title.text-center #{movie.title} (#{movie.year}) #{'★' if movie.watched}
 					/ .card-text Lorem Ipsum
 				.card-footer
 					.row.my-2.text-center
