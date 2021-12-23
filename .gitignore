@@ -1,8 +1,2 @@
 build/
-
-.cache
-.sass-cache
-
-.DS_Store
-.bundle
 source/assets/images/poster-*.jpg
