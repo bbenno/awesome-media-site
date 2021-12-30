@@ -1,24 +1,28 @@
+HOST = 'bbenno.github.io'
+
+###############################################################################
 ## Activate and configure extensions
 
 activate :aria_current
 
 activate :autoprefixer do |prefix|
-  prefix.browsers = "last 2 versions"
+  prefix.browsers = 'last 2 versions'
 end
 
 activate :i18n, mount_at_root: :en
 
-## Generates Web Robots Page
-## http://www.robotstxt.org/
+# Generates Web Robots Page
+# http://www.robotstxt.org/
 activate :robots,
          rules: [{ user_agent: '*', allow: ['/'] }],
-         sitemap: '/sitemap.xml'
+         sitemap: "https://#{HOST}/sitemap.xml"
 
 activate :sitemap,
          gzip: true,
-         hostname: 'https://bbenno.github.io/awesome-media-site'
+         hostname: "https://#{HOST}"
 
-##
+###############################################################################
+## Settings
 
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
@@ -27,6 +31,13 @@ set :fonts_dir, 'assets/fonts'
 
 config[:sass_assets_paths] << Bootstrap.stylesheets_path
 
+set :protect_from_csrf, true
+set :strip_index_file, true
+
+## Custom settings
+# `set :a, ...` can be accessed via `config.a` in sources
+
+###############################################################################
 ## Layouts
 
 ## Per-page layout changes
@@ -37,6 +48,7 @@ page '/*.txt', layout: false
 ## With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 
+###############################################################################
 ## Proxy pages
 
 # proxy(
@@ -47,6 +59,7 @@ page '/*.txt', layout: false
 #   },
 # )
 
+###############################################################################
 ## Helpers
 ## Methods defined in the helpers block are available in templates
 
@@ -56,23 +69,22 @@ page '/*.txt', layout: false
 #   end
 # end
 
+###############################################################################
 ## External pipeline
+## Run multiple subprocesses which output content to
 
-activate :external_pipeline,
-  name: :download_images,
-  command: "./lib/download_images.rb",
-  source: 'assets/images'
+# activate :external_pipeline,
+#          name: :external_tool,
+#          command: build? ? 'command 1' : 'command 2',
+#          source: '.tmp/',
+#          latency: 1
 
+###############################################################################
 ## Build-specific configuration
 
 configure :build do
-  # Use relative URLs
-  activate :directory_indexes
-
   # Add assets fingerprinting to avoid cache issues
   activate :asset_hash
-  # Relative assets needed to deploy to GitHub Pages
-  activate :relative_assets
 end
 
 configure :development do
@@ -87,4 +99,9 @@ configure :production do
   activate :minify_css
   activate :minify_html
   activate :minify_javascript
+end
+
+configure :github_pages do
+  set :build_dir, 'docs'
+  set :http_prefix, '/awesome-media-site'
 end

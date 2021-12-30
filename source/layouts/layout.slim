@@ -17,12 +17,10 @@ html lang="#{I18n.locale}"
 		header.d-flex.justify-content-center.py-3.border-bottom
 			ul.nav.nav-pills
 				li.nav-item
-					a.nav-link.active[href='/'] Home
+					= link_to('Home', '/index.html', class: 'nav-link active')
 				li.nav-item
-					a.nav-link[href='/movies.html']
-						= t(:movies).capitalize
+					= link_to(t(:movies).capitalize, '/movies.html', class: 'nav-link')
 				li.nav-item
-					a.nav-link[href='/series.html']
-						= t(:series).capitalize
+					= link_to(t(:series).capitalize, '/series.html', class: 'nav-link')
 		main.container.mt-3
 			== yield
