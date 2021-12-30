@@ -1,0 +1,17 @@
+h1 = t(:series).capitalize
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-5.row-cols-xxl-6.g-4
+	- data.series.series.each do |series|
+		.col
+			.card.h-100
+				= image_tag "poster-#{series.tmdb}.jpg", class: 'card-img-top', alt: "Poster of '#{series.title}'"
+				.card-body
+					h5.card-title.text-center #{series.title} #{'★' if series.watched}
+					/ .card-text Lorem Ipsum
+				.card-footer
+					.row.my-2.text-center
+						.col
+							a> href="https://www.imdb.com/title/#{series.imdb}/"
+								= image_tag 'IMDb_Logo.svg', alt: 'IMDb Logo', height:'20rem'
+						.col
+							a> href="https://www.themoviedb.org/tv/#{series.tmdb}/"
+								= image_tag 'TMDB_Logo.svg', alt: 'The Movie Database (TMDB)', height: '20rem'
