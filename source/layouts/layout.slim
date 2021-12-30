@@ -14,5 +14,15 @@ html lang="#{I18n.locale}"
 		= stylesheet_link_tag 'site'
 		= javascript_include_tag 'site'
 	body
-		main.container
+		header.d-flex.justify-content-center.py-3.border-bottom
+			ul.nav.nav-pills
+				li.nav-item
+					a.nav-link.active[href='/'] Home
+				li.nav-item
+					a.nav-link[href='/movies.html']
+						= t(:movies).capitalize
+				li.nav-item
+					a.nav-link[href='/series.html']
+						= t(:series).capitalize
+		main.container.mt-3
 			== yield
