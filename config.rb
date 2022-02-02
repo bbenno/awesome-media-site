@@ -91,7 +91,7 @@ configure :development do
 end
 
 configure :production do
-  activate :gzip
+  # Minification
   activate :minify_css
   activate :minify_html
   activate :minify_javascript
