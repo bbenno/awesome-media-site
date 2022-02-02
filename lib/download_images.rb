@@ -43,8 +43,7 @@ data.each do |media_type, media_items|
       next
     end
 
-    root = {tv: 'backdrops', movie: 'posters'}[media_type]
-    file_path = JSON.parse(res.body)[root][0]['file_path']
+    file_path = JSON.parse(res.body)['posters'][0]['file_path']
 
     image_uri = URI("#{tmdb_image_base_url}#{tmdb_image_file_size}#{file_path}")
     ext = File.extname(file_path)
