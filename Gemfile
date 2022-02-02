@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
+## Middleman
 gem 'middleman', '~> 4.4.0'
 ## Indicate a current (active) link using `aria-current`
 gem 'middleman-aria_current', '~> 0.1.2'
@@ -17,14 +18,13 @@ gem 'middleman-livereload', '~> 3.4.7'
 ## Minify whitespaces around HTML
 gem 'middleman-minify-html', '~> 3.4.1'
 gem 'middleman-robots', '~> 1.3.7'
-gem 'middleman-sitemap', '~> 0.0.13', github: '/matsu911/middleman-sitemap'
+gem 'middleman-sitemap', '~> 0.0.13', github: 'matsu911/middleman-sitemap'
+## Bootstrap CSS/JS
+gem 'bootstrap', '~> 5.1'
 
 ## Templating engine
 gem 'slim', '~> 4.1'
 
+## Misc
 gem 'tzinfo-data', platforms: %i[mswin mingw jruby x64_mingw]
 gem 'wdm', '~> 0.1', platforms: %i[mswin mingw x64_mingw]
-
-gem 'solargraph', '~> 0.44.2', group: :development
-
-gem 'bootstrap', '~> 5.1'
