@@ -1,7 +1,6 @@
 #! /usr/bin/env ruby
 
 require 'yaml'
-require 'json'
 require 'uri'
 require 'logger'
 require 'net/http'
@@ -12,12 +11,12 @@ logger.level = Logger::WARN
 tmdb_api_url = 'https://api.themoviedb.org/3'
 tmdb_api_key = ENV['TMDB_API_KEY']
 
-tmdb_image_base_url = 'http://image.tmdb.org/t/p/'
-tmdb_image_file_size = 'w342'
-
 data = Hash.new
 data[:tv] = YAML.load(File.open('data/series.yml'))['series']
 data[:movie] = YAML.load(File.open('data/movies.yml'))['movies']
+
+dir_path = File.join('data', 'details')
+Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
 
 data.each do |media_type, media_items|
   media_items.each do |media|
@@ -26,17 +25,16 @@ data.each do |media_type, media_items|
       next
     end
 
-    path = File.join('source', 'assets', 'images', media['tmdb'].to_s)
+    file_path = File.join(dir_path, "#{media['tmdb']}.json")
 
-    if Dir.glob("#{path}.*").any?
+    if File.exist?(file_path)
       logger.info("Skip #{media['title']} (#{media['tmdb']})")
       next
     else
       logger.info("Loading #{media['title']} (#{media['tmdb']})")
     end
 
-    #uri = URI("#{tmdb_api_url}/#{media_type}/#{media['tmdb']}/images?api_key=#{tmdb_api_key}")
-    uri = URI("#{tmdb_api_url}/#{media_type}/#{media['tmdb']}?api_key=#{tmdb_api_key}&language=#{I18n.locale}")
+    uri = URI("#{tmdb_api_url}/#{media_type}/#{media['tmdb']}?api_key=#{tmdb_api_key}")
     res = Net::HTTP.get_response(uri)
 
     unless res.is_a?(Net::HTTPSuccess)
@@ -44,15 +42,8 @@ data.each do |media_type, media_items|
       next
     end
 
-    #file_path = JSON.parse(res.body)['posters'][0]['file_path']
-    file_path = JSON.parse(res.body)['poster_path']
+    File.write(file_path, res.body)
 
-    image_uri = URI("#{tmdb_image_base_url}#{tmdb_image_file_size}#{file_path}")
-    ext = File.extname(file_path)
-    filename = File.join('source', 'assets', 'images', "poster-#{media['tmdb']}#{ext}")
-
-    File.write(filename, Net::HTTP.get(image_uri))
-
-    logger.info("Created #{filename}")
+    logger.info("Created #{File.basename(file_path)}")
   end
 end

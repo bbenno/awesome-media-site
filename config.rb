@@ -53,9 +53,9 @@ page '/*.txt', layout: false
 ###############################################################################
 ## Proxy pages
 
-activate :external_pipeline, name: :download_images,
-                             command: './lib/download_images.rb',
-                             source: 'assets/images'
+activate :external_pipeline, name: :get_details,
+                             command: './lib/get_details.rb',
+                             source: 'data'
 
 ###############################################################################
 ## Helpers
