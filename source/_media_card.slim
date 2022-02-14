@@ -1,7 +1,8 @@
+- details = data.details[media.tmdb]
 .col
 	.card.h-100[id=media.title]
-		- img_path = "https://image.tmdb.org/t/p/w342#{data.details[media.tmdb].poster_path}"
-		= image_tag img_path, class: 'card-img-top', alt: "Poster of '#{media.title}'"
+		- img_path = "https://image.tmdb.org/t/p/w342#{details.poster_path}"
+		= image_tag img_path, class: 'card-img-top', alt: "Poster of '#{media.title}'", 'data-bs-toggle' => 'tooltip', 'data-bs-html' => 'true', title: details.overview
 		.card-body
 			h5.card-title.text-center
 				=> '★' if media.watched
