@@ -1,17 +1,7 @@
+---
+title: Awesome Movies
+---
 h1 = t(:movies).capitalize
 .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-5.row-cols-xxl-6.g-4
 	- data.movies.movies.each do |movie|
-		.col
-			.card.h-100
-				= image_tag "poster-#{movie.tmdb}.jpg", class: 'card-img-top', alt: "Poster of '#{movie.title}'"
-				.card-body
-					h5.card-title.text-center #{movie.title} (#{movie.year}) #{'★' if movie.watched}
-					/ .card-text Lorem Ipsum
-				.card-footer
-					.row.my-2.text-center
-						.col
-							a> href="https://www.imdb.com/title/#{movie.imdb}/"
-								= image_tag 'IMDb_Logo.svg', alt: 'IMDb Logo', height:'20'
-						.col
-							a> href="https://www.themoviedb.org/movie/#{movie.tmdb}/"
-								= image_tag 'TMDB_Logo.svg', alt: 'The Movie Database (TMDB)', height: '20'
+		= partial :media_card, locals: { media: movie }

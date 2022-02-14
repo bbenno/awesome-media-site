@@ -21,6 +21,8 @@ activate :sitemap,
          gzip: true,
          hostname: "https://#{HOST}"
 
+activate :sprockets
+
 ###############################################################################
 ## Settings
 

@@ -19,6 +19,7 @@ gem 'middleman-livereload', '~> 3.4.7'
 gem 'middleman-minify-html', '~> 3.4.1'
 gem 'middleman-robots', '~> 1.3.7'
 gem 'middleman-sitemap', '~> 0.0.13', github: 'matsu911/middleman-sitemap'
+gem 'middleman-sprockets', '~> 4.0.0'
 ## Bootstrap CSS/JS
 gem 'bootstrap', '~> 5.1'
 

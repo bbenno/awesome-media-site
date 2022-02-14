@@ -1,0 +1,19 @@
+.col
+	.card.h-100
+		= image_tag "poster-#{media.tmdb}.jpg", class: 'card-img-top', alt: "Poster of '#{media.title}'"
+		.card-body
+			h5.card-title.text-center
+				=> '★' if media.watched
+				=> media.title
+				=> "(#{media.year})" if media.year
+			/ .card-text Lorem Ipsum
+		.card-footer
+			.row.my-2.text-center
+				- if media.imdb
+					.col
+						a> href="https://www.imdb.com/title/#{media.imdb}/"
+							= image_tag 'IMDb_Logo.svg', alt: 'IMDb Logo', height:'20'
+				- if media.tmdb
+					.col
+						a> href="https://www.themoviedb.org/movie/#{media.tmdb}/"
+							= image_tag 'TMDB_Logo.svg', alt: 'The Movie Database (TMDB) Logo', height: '20'

@@ -14,13 +14,17 @@ html lang="#{I18n.locale}"
 		= stylesheet_link_tag 'site'
 		= javascript_include_tag 'site'
 	body
-		header.d-flex.justify-content-center.py-3.border-bottom
-			ul.nav.nav-pills
-				li.nav-item
-					= link_to('Home', '/index.html', class: 'nav-link active')
-				li.nav-item
-					= link_to(t(:movies).capitalize, '/movies.html', class: 'nav-link')
-				li.nav-item
-					= link_to(t(:series).capitalize, '/series.html', class: 'nav-link')
+		nav.navbar.fixed-top.navbar-expand-md.navbar-light.bg-light
+			.container-fluid
+				a.navbar-brand> href='/'
+					| Awesome Media
+				button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
+					span.navbar-toggler-icon
+				#navbarNav.collapse.navbar-collapse
+					ul.navbar-nav.me-auto.mb-2.mb-lg-0
+						li.nav-item
+							= current_link_to(t(:movies).capitalize, '/movies.html', class: 'nav-link')
+						li.nav-item
+							= current_link_to(t(:series).capitalize, '/series.html', class: 'nav-link')
 		main.container.mt-3
 			== yield
