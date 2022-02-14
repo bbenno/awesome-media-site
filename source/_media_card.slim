@@ -15,5 +15,5 @@
 							= image_tag 'IMDb_Logo.svg', alt: 'IMDb Logo', height:'20'
 				- if media.tmdb
 					.col
-						a> href="https://www.themoviedb.org/movie/#{media.tmdb}/"
+						a> href="https://www.themoviedb.org/#{media_type}/#{media.tmdb}/"
 							= image_tag 'TMDB_Logo.svg', alt: 'The Movie Database (TMDB) Logo', height: '20'
