@@ -15,4 +15,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		if (localStorage.getItem(cardElem.id) == 1) cardElem.style.opacity = .4;
 		cardElem.addEventListener('click', () => updateStorage(cardElem));
 	});
+
+	document.querySelectorAll('a').forEach(a => {
+		a.addEventListener('click', function(e){e.stopPropagation()});
+	})
 });
