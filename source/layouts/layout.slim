@@ -16,8 +16,7 @@ html lang="#{I18n.locale}"
 	body
 		nav.navbar.fixed-top.navbar-expand-md.navbar-light.bg-light
 			.container-fluid
-				a.navbar-brand> href='/'
-					| Awesome Media
+				= link_to('Awesome Media', '/', class: 'navbar-brand')
 				button.navbar-toggler[type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"]
 					span.navbar-toggler-icon
 				#navbarNav.collapse.navbar-collapse
