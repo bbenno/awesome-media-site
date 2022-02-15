@@ -31,9 +31,6 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 
-config[:sass_assets_paths] << Bootstrap.stylesheets_path
-
-set :protect_from_csrf, true
 set :strip_index_file, true
 
 ## Custom settings
@@ -94,9 +91,9 @@ end
 
 configure :production do
   # Minification
-  activate :minify_css
+#  activate :minify_css
   activate :minify_html
-  activate :minify_javascript
+#  activate :minify_javascript
 end
 
 configure :github_pages do
