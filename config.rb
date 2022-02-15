@@ -31,6 +31,8 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 
+config[:sass_assets_paths] << Bootstrap.stylesheets_path
+
 set :strip_index_file, true
 
 ## Custom settings

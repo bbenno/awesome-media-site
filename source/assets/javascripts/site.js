@@ -2,8 +2,8 @@
 //= require bootstrap
 
 function updateStorage(target) {
-	var previous = localStorage.getItem(target.id);
-	var next = previous ^ true;
+	const previous = localStorage.getItem(target.id);
+	const next = previous ^ true;
   localStorage.setItem(target.id, next);
 
 	if (next == 1) target.style.opacity = .4;
@@ -17,6 +17,6 @@ document.addEventListener('DOMContentLoaded', function(){
 	});
 
 	document.querySelectorAll('a').forEach(a => {
-		a.addEventListener('click', function(e){e.stopPropagation()});
+		a.addEventListener('click', function(e){e.stopPropagation();});
 	})
 });
