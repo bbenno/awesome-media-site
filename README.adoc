@@ -42,3 +42,9 @@ bundle exec middleman build
 bundle exec middleman server
 ----
 . Open the printed URL or http://localhost:4567[] in your browser
+
+== Credits
+
+This product uses the TMDB API but is not endorsed or certified by TMDB.
+
+Favicon from https://www.pngrepo.com/svg/289441/tv[PNG Repo] under https://creativecommons.org/publicdomain/zero/1.0/[CC0 License]
