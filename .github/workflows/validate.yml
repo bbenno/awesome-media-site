@@ -27,7 +27,7 @@ jobs:
     - name: Build website
       run: bundle exec middleman build -e production
     - name: Validate files with W3 Nu Validator
-      uses: Cyb3r-Jak3/html5validator-action@v7.0.0
+      uses: Cyb3r-Jak3/html5validator-action@v7.1.0
       with:
         root: build/
     - name: Upload log file
