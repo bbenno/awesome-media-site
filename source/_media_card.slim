@@ -1,8 +1,8 @@
-- details = data.details[media.tmdb]
+- details = data.details[media.tmdb] if data.respond_to?(:details)
 .col
 	.card.h-100[id=media.title.gsub(/\s/, '-').gsub(/[^\w\-:.]/, '_')]
-		- img_path = "https://image.tmdb.org/t/p/w342#{details.poster_path}"
-		= image_tag img_path, class: 'card-img-top', alt: "Poster of '#{media.title}'", 'data-bs-toggle' => 'tooltip', 'data-bs-html' => 'true', title: details.overview
+		- img_path = "https://image.tmdb.org/t/p/w342#{details.poster_path}" if details
+		= image_tag img_path, class: 'card-img-top', alt: "Poster of '#{media.title}'", 'data-bs-toggle' => 'tooltip', 'data-bs-html' => 'true', title: details&.overview
 		.card-body
 			h5.card-title.text-center
 				=> '★' if media.watched

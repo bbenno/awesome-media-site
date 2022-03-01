@@ -11,6 +11,11 @@ logger.level = Logger::WARN
 tmdb_api_url = 'https://api.themoviedb.org/3'
 tmdb_api_key = ENV['TMDB_API_KEY']
 
+unless tmdb_api_key
+  logger.error("Unable to get media details. The environment variable TMDB_API_KEY is not set.")
+  return # Exit nicely
+end
+
 data = Hash.new
 data[:tv] = YAML.load(File.open('data/series.yml'))['series']
 data[:movie] = YAML.load(File.open('data/movies.yml'))['movies']
