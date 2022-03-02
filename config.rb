@@ -101,7 +101,7 @@ configure :production do
   # Minification
   activate :minify_css
   activate :minify_html
-  activate :minify_javascript
+  # activate :minify_javascript
 end
 
 configure :github_pages do
