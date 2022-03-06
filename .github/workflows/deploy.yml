@@ -1,0 +1,27 @@
+name: HTML5 Validation
+on:
+  push:
+    branches: [ master ]
+jobs:
+  validate:
+    name: Deploy website
+    runs-on: ubuntu-latest
+    env:
+      TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+    - name: Build website
+      run: bundle exec middleman build -e production
+    - name: Deploy to GitHub pages
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      with:
+        branch: gh-pages
+        folder: build
+        single-commit: true

@@ -103,10 +103,3 @@ configure :production do
   activate :minify_html
   # activate :minify_javascript
 end
-
-configure :github_pages do
-  set :build_dir, 'docs'
-
-  activate :minify_css
-  activate :minify_html
-end
