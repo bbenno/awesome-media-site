@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-DOMAIN = 'bbenno.github.io'
+DOMAIN = 'm.bbenno.com'
 HOST = "https://#{DOMAIN}"
 
 ###############################################################################
@@ -106,5 +106,7 @@ end
 
 configure :github_pages do
   set :build_dir, 'docs'
-  set :http_prefix, '/awesome-media-site'
+
+  activate :minify_css
+  activate :minify_html
 end

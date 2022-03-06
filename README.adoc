@@ -3,7 +3,7 @@
 :shields: https://shields.io
 :slug: awesome-media-site
 :github: https://github.com/bbenno/{slug}
-:website: https%3A%2F%2Fbbenno.github.io/{slug}
+:website: https%3A%2F%2Fm.bbenno.com
 
 image:{shields}/website?url={website}[Website]
 image:{github}/actions/workflows/validate.yml/badge.svg[Validation, link="{github}/actions/workflows/validate.yml"]
