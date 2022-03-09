@@ -17,7 +17,7 @@ activate :i18n, mount_at_root: :en
 # Generates Web Robots Page
 # http://www.robotstxt.org/
 activate :robots,
-         rules: [{ user_agent: '*', allow: ['/'] }],
+         rules: [{ user_agent: '*', disallow: ['/'] }],
          sitemap: "#{HOST}/sitemap.xml"
 
 activate :sitemap,
