@@ -1,9 +1,9 @@
-name: HTML5 Validation
+name: Build and deploy website
 on:
   push:
     branches: [ master ]
 jobs:
-  validate:
+  deploy:
     name: Deploy website
     runs-on: ubuntu-latest
     env:
