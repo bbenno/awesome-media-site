@@ -17,8 +17,8 @@ unless tmdb_api_key
 end
 
 data = Hash.new
-data[:tv] = YAML.load(File.open('data/series.yml'))['series']
-data[:movie] = YAML.load(File.open('data/movies.yml'))['movies']
+data[:tv] = YAML.load(File.open('data/series.yml'))
+data[:movie] = YAML.load(File.open('data/movies.yml'))
 
 dir_path = File.join('data', 'details')
 Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
