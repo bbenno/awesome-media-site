@@ -33,5 +33,7 @@ html lang="#{I18n.locale}"
 							= current_link_to(t(:movies).capitalize, '/movies.html', class: 'nav-link')
 						li.nav-item
 							= current_link_to(t(:series).capitalize, '/series.html', class: 'nav-link')
+						li.nav-item
+							= current_link_to(t(:music).capitalize, '/music.html', class: 'nav-link')
 		main.container.mt-3[style="padding-top: 52px;"]
 			== yield
