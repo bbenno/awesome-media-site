@@ -1,6 +1,3 @@
-//= require popper
-//= require bootstrap
-
 function updateStorage(target) {
 	const previous = localStorage.getItem(target.id);
 	const next = previous ^ true;
