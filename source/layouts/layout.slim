@@ -11,6 +11,7 @@ html lang="#{I18n.locale}"
 		meta name='keywords' content='awesome,movies,series,music'
 		meta name='referrer' content='no-referrer'
 		meta name='color-scheme' content='only dark'
+		base target='_blank'
 		link href='apple-touch-icon-180x180-precomposed.png' rel='apple-touch-icon' sizes='180x180'
 		link href='apple-touch-icon-152x152-precomposed.png' rel='apple-touch-icon' sizes='152x152'
 		link href='apple-touch-icon-144x144-precomposed.png' rel='apple-touch-icon' sizes='144x144'
@@ -30,11 +31,11 @@ html lang="#{I18n.locale}"
 				#navbarNav.collapse.navbar-collapse
 					ul.navbar-nav.me-auto.mb-2.mb-lg-0
 						li.nav-item
-							= current_link_to(t(:movies).capitalize, '/movies.html', class: 'nav-link')
+							= current_link_to(t(:movies).capitalize, '/movies.html', class: 'nav-link', target: '_self')
 						li.nav-item
-							= current_link_to(t(:series).capitalize, '/series.html', class: 'nav-link')
+							= current_link_to(t(:series).capitalize, '/series.html', class: 'nav-link', target: '_self')
 						li.nav-item
-							= current_link_to(t(:music).capitalize, '/music.html', class: 'nav-link')
+							= current_link_to(t(:music).capitalize, '/music.html', class: 'nav-link', target: '_self')
 		main.container.mt-3[style="padding-top: 52px;"]
 			== yield
 		script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
