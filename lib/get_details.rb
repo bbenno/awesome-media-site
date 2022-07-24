@@ -12,7 +12,7 @@ def dir_path = File.join('data', 'details')
 Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
 
 {
-  movie: YAML.load(File.open('data/movies.yml')),
+  movie: YAML.load(File.open('data/movies.yml')).concat(YAML.load(File.open('data/short_films.yml'))),
   tv: YAML.load(File.open('data/series.yml'))
 }.each do |media_type, media_items|
   media_items.each do |media|
