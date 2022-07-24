@@ -6,7 +6,9 @@
 				=> '★' if watched
 				=> title
 				=> "(#{date})" if date
-			/ .card-text info
+			.card-text
+				- tags.each do |tag|
+					span[class='badge rounded-pill bg-dark'] = tag
 		.card-footer
 			.row.my-2.text-center
 				.col
