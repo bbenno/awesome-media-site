@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 DOMAIN = 'm.bbenno.com'
-HOST = "https://#{DOMAIN}"
+HOST = "https://#{DOMAIN}".freeze
 
 ###############################################################################
 ## Activate and configure extensions
@@ -24,7 +24,7 @@ activate :sitemap,
          gzip: true,
          hostname: HOST
 
-activate :favicon_maker, :icons => {
+activate :favicon_maker, icons: {
   '_favicon_template.png' => [
     { icon: 'apple-touch-icon-180x180-precomposed.png' },
     { icon: 'apple-touch-icon-152x152-precomposed.png' },
@@ -80,7 +80,7 @@ page '/*.txt', layout: false
 ## Run multiple subprocesses which output content to
 
 # Get media details from TMDB API
-require File.expand_path(File.dirname(__FILE__) + '/lib/get_details.rb')
+require File.expand_path("#{File.dirname(__FILE__)}/lib/get_details.rb")
 
 ###############################################################################
 ## Build-specific configuration

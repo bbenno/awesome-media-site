@@ -1,54 +1,39 @@
 #! /usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'yaml'
+require 'json'
 require 'uri'
-require 'logger'
 require 'net/http'
 
-logger = Logger.new(STDOUT)
-logger.level = Logger::WARN
+def api_key = ENV.fetch('TMDB_API_KEY')
+def dir_path = File.join('data', 'details')
 
-tmdb_api_url = 'https://api.themoviedb.org/3'
-tmdb_api_key = ENV['TMDB_API_KEY']
-
-unless tmdb_api_key
-  logger.error("Unable to get media details. The environment variable TMDB_API_KEY is not set.")
-  return # Exit nicely
-end
-
-data = Hash.new
-data[:tv] = YAML.load(File.open('data/series.yml'))
-data[:movie] = YAML.load(File.open('data/movies.yml'))
-
-dir_path = File.join('data', 'details')
 Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
 
-data.each do |media_type, media_items|
+{
+  movie: YAML.load(File.open('data/movies.yml')),
+  tv: YAML.load(File.open('data/series.yml'))
+}.each do |media_type, media_items|
   media_items.each do |media|
-    unless media['tmdb']
-      logger.error("TMDB key missing for \"#{media['title']}\"")
-      next
-    end
+    abort unless media['tmdb']
 
-    file_path = File.join(dir_path, "#{media['tmdb']}.json")
+    id = media['tmdb']
 
-    if File.exist?(file_path)
-      logger.info("Skip #{media['title']} (#{media['tmdb']})")
-      next
-    else
-      logger.info("Loading #{media['title']} (#{media['tmdb']})")
-    end
+    file_path = File.join(dir_path, "#{id}.json")
 
-    uri = URI("#{tmdb_api_url}/#{media_type}/#{media['tmdb']}?api_key=#{tmdb_api_key}")
+    next if File.exist?(file_path)
+
+    uri = URI("https://api.themoviedb.org/3/#{media_type}/#{id}?api_key=#{api_key}")
     res = Net::HTTP.get_response(uri)
 
-    unless res.is_a?(Net::HTTPSuccess)
-      logger.error("Failed with #{res.class}")
-      next
-    end
+    abort("Failed with #{res.class}") unless res.is_a?(Net::HTTPSuccess)
 
     File.write(file_path, res.body)
 
-    logger.info("Created #{File.basename(file_path)}")
+    JSON.parse!(res.body).then do |m|
+      img = URI('https://image.tmdb.org/t/p/w342').tap { _1.path += m['poster_path'] }
+      File.write(File.join('source', 'assets', 'images', (m['title'] || m['name']).parameterize), Net::HTTP.get(img))
+    end
   end
 end
