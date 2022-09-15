@@ -2,3 +2,13 @@
 title: Awesome Music
 header: music
 ---
+- data.music.each do |genre, tracks|
+	h2.w-100 = genre.titleize
+	- tracks.each do |track|
+		.col
+			.card.h-100
+				div.card-img-top[data-youtube="#{track.youtube_key}"]
+				.card-body
+					h5.card-title.text-center
+						=> track.title
+= javascript_include_tag 'youtube'
