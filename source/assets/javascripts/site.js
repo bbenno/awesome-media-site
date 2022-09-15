@@ -1,7 +1,7 @@
 function updateStorage(target) {
 	const previous = localStorage.getItem(target.id);
 	const next = previous ^ true;
-  localStorage.setItem(target.id, next);
+	localStorage.setItem(target.id, next);
 
 	if (next == 1) target.style.opacity = .4;
 	else target.style.opacity = 1.0;

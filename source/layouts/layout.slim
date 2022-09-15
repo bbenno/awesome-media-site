@@ -39,5 +39,8 @@ html lang="#{I18n.locale}"
 						li.nav-item
 							= current_link_to(t(:music).titleize, '/music.html', class: 'nav-link', target: '_self')
 		main.container.mt-3[style="padding-top: 52px;"]
-			== yield
+			- if current_page.data.header
+				h1 = t(current_page.data.header).titleize
+			.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.row-cols-xl-5.row-cols-xxl-6.g-4
+				== yield
 		script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"
