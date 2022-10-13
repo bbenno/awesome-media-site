@@ -199,6 +199,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap (~> 5.1)
+  haml (< 6.0)
   middleman (~> 4.4.0)
   middleman-aria_current (~> 0.1.2)
   middleman-autoprefixer (~> 3.0.0)
