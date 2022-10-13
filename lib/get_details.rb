@@ -22,7 +22,7 @@ Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
   details_path = File.join(dir_path, category.name)
   Dir.mkdir(details_path) unless Dir.exist?(details_path)
   category.content.each do |media|
-    abort unless (id = media['tmdb'])
+    abort("missing tmdb id for #{media}") unless (id = media['tmdb'])
 
     file_path = File.join(details_path, "#{id}.json")
 
