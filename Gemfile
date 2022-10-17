@@ -21,7 +21,7 @@ gem 'middleman-robots', '~> 1.3.7'
 gem 'middleman-sitemap', '~> 0.0.13', github: 'matsu911/middleman-sitemap'
 gem 'middleman-favicon-maker', '~> 4.1'
 ## Bootstrap CSS/JS
-gem 'bootstrap', '~> 5.1'
+gem 'bootstrap', '~> 5.2'
 
 ## Templating engine
 gem 'slim', '~> 4.1'
