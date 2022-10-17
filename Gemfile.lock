@@ -32,7 +32,7 @@ GEM
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     backports (3.23.0)
-    bootstrap (5.2.1)
+    bootstrap (5.2.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
@@ -198,7 +198,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootstrap (~> 5.1)
+  bootstrap (~> 5.2)
   haml (< 6.0)
   middleman (~> 4.4.0)
   middleman-aria_current (~> 0.1.2)
