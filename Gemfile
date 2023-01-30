@@ -24,7 +24,7 @@ gem 'middleman-favicon-maker', '~> 4.1'
 gem 'bootstrap', '~> 5.2'
 
 ## Templating engine
-gem 'slim', '~> 4.1'
+gem 'slim', '~> 5.0'
 gem 'haml', '< 6.0'
 
 ## Misc
