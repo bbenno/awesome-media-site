@@ -25,7 +25,7 @@ gem 'bootstrap', '~> 5.2'
 
 ## Templating engine
 gem 'slim', '~> 4.1'
-gem 'haml', '< 6.0'
+gem 'haml', '< 7.0'
 
 ## Misc
 gem 'tzinfo-data', platforms: %i[mswin mingw jruby x64_mingw]
