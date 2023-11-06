@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 ## Middleman
-gem 'middleman', '~> 4.5.0'
+gem 'middleman', '~> 4.5.1'
 ## Indicate a current (active) link using `aria-current`
 gem 'middleman-aria_current', '~> 0.1.2'
 ## Vendor-prefix stylesheets
