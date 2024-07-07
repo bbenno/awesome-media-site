@@ -10,5 +10,7 @@ header: music
 				div.card-img-top[data-youtube="#{track.youtube_key}"]
 				.card-body
 					h5.card-title.text-center
-						=> track.title
+						a[href="https://www.youtube.com/watch?v=#{track.youtube_key}"]
+							=> track.title
+					h6.card-subtitle.mb-2.text-body-secondary by #{track.artist}
 = javascript_include_tag 'youtube'
