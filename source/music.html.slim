@@ -2,7 +2,9 @@
 title: Awesome Music
 header: music
 ---
-- data.music.each do |genre, tracks|
+- groups = {}
+- data.music.each { |track| (track[:genres] || []).each { groups[_1] ||= []; groups[_1] << track } }
+- groups.each do |genre, tracks|
 	h2.w-100 = genre.titleize
 	- tracks.each do |track|
 		.col
