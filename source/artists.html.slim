@@ -1,0 +1,7 @@
+---
+title: Awesome Music Artists
+header: artists
+---
+- data[:'music-artists'].each do |artist|
+	a[href="https://www.discogs.com/artist/#{artist.discogs}"]
+		span[class='badge rounded-pill text-bg-primary'] = artist.name
