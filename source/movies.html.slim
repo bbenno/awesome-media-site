@@ -4,4 +4,5 @@ header: movies
 ---
 - data.movies.reverse.each do |movie|
 	- details = data.details.movies[movie.tmdb]
-	= partial :media_card, locals: { title: details.title, img_path: 'movies', description: details.overview, watched: movie.watched, date: details.release_date[0,4], imdb: movie.imdb, tmdb: "movie/#{movie.tmdb}", info: details.tagline, tags: details.genres.map(&:name) }
+	- abort("inconsistent IMDB key for #{details.id}") if details.imdb_id != movie.imdb
+	= partial :media_card, locals: { title: details.title, img_path: 'movies', description: details.overview, watched: movie.watched, date: details.release_date[0,4], imdb: details.imdb_id, tmdb: "movie/#{details.id}", info: details.tagline, tags: details.genres.map(&:name) }
