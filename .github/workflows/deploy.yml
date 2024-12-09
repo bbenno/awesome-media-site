@@ -20,7 +20,7 @@ jobs:
     - name: Build website
       run: bundle exec middleman build -e production
     - name: Deploy to GitHub pages
-      uses: JamesIves/github-pages-deploy-action@v4.7.1
+      uses: JamesIves/github-pages-deploy-action@v4.7.2
       with:
         branch: gh-pages
         folder: build
