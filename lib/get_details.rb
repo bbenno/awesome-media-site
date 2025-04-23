@@ -45,7 +45,7 @@ Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
       path = File.join('source', 'assets', 'images', category.name)
       Dir.mkdir(path) unless Dir.exist?(path)
       year = m['release_date']&.slice(0, 4) || m['first_air_date']&.slice(0, 4) || media['year']
-      title = m['title'] || media ['title']
+      title = m['title'] || m['name'] || media ['title']
       name = [title, year].compact.join('+').parameterize
       File.write(File.join(path, name), Net::HTTP.get(img))
     end

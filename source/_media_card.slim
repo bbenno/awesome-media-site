@@ -1,6 +1,6 @@
 .col
 	.card.h-100[id=title.parameterize]
-		= image_tag "#{img_path}/#{title.parameterize}", class: 'card-img-top', alt: "Poster of '#{title}'", 'data-bs-toggle' => 'tooltip', 'data-bs-html' => 'true', title: description
+		= image_tag img_path, class: 'card-img-top', alt: "Poster of '#{title}'", 'data-bs-toggle' => 'tooltip', 'data-bs-html' => 'true', title: description
 		.card-body
 			h5.card-title.text-center
 				=> '★' if watched

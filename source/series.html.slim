@@ -4,4 +4,6 @@ header: series
 ---
 - data.series.reverse.each do |series|
 	- details = data.details.series[series.tmdb]
-	= partial :media_card, locals: { title: details.name, img_path: 'series', description: details.overview, watched: series.watched, date: details.first_air_date[0,4], imdb: series.imdb, tmdb: "tv/#{series.tmdb}", tags: details.genres.map(&:name) }
+	- year = details.first_air_date[0,4]
+	- filename = "#{details.name}-#{year}".parameterize
+	= partial :media_card, locals: { title: details.name, img_path: "series/#{filename}", description: details.overview, watched: series.watched, date: year, imdb: series.imdb, tmdb: "tv/#{series.tmdb}", tags: details.genres.map(&:name) }
