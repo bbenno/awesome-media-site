@@ -1,6 +1,7 @@
 { pkgs, lib, config, inputs, ... }:
 {
 	dotenv.enable = true;
+
 	languages.ruby.enable = true;
 	languages.javascript.enable = true;
 
@@ -16,6 +17,4 @@
       rsync -amzuP build/ hhost:public_html/bbenno_m
     '';
   };
-
-  # See full reference at https://devenv.sh/reference/options/
 }
