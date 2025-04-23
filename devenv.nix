@@ -1,10 +1,11 @@
 { pkgs, lib, config, inputs, ... }:
 {
+	dotenv.enable = true;
 	languages.ruby.enable = true;
 	languages.javascript.enable = true;
 
 	packages = [
-	  pkgs.imagemagick
+		pkgs.imagemagick
 	];
 
   scripts = {

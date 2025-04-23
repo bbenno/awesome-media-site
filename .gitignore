@@ -1,3 +1,4 @@
+.env
 build/
 source/assets/images/poster-*.jpg
 
