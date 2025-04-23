@@ -5,6 +5,8 @@ require 'yaml'
 require 'json'
 require 'uri'
 require 'net/http'
+require 'active_support'
+require 'active_support/core_ext/string/inflections'
 
 def api_key = ENV.fetch('TMDB_API_KEY')
 def dir_path = File.join('data', 'details')
@@ -44,7 +46,8 @@ Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
       Dir.mkdir(path) unless Dir.exist?(path)
       year = m['release_date']&.slice(0, 4) || m['first_air_date']&.slice(0, 4) || media['year']
       title = m['title'] || media ['title']
-      File.write(File.join(path, [title, year].compact.join('+').gsub!(/[^a-z0-9\-_]+/i, '-')), Net::HTTP.get(img))
+      name = [title, year].compact.join('+').parameterize
+      File.write(File.join(path, name), Net::HTTP.get(img))
     end
     sleep 0.1 # Rate Limit
   end
