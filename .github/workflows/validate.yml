@@ -13,7 +13,7 @@ jobs:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
         submodules: true
     - name: Setup Ruby
