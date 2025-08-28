@@ -8,6 +8,8 @@ require 'net/http'
 require 'active_support'
 require 'active_support/core_ext/string/inflections'
 
+force = false
+
 def api_key = ENV.fetch('TMDB_API_KEY')
 def dir_path = File.join('data', 'details')
 
@@ -31,7 +33,7 @@ Dir.mkdir(dir_path) unless Dir.exist?(dir_path)
 
     file_path = File.join(details_path, "#{id}.json")
 
-    next if File.exist?(file_path)
+    next if File.exist?(file_path) && !force
 
     uri = URI("https://api.themoviedb.org/3/#{category.tmdb_key}/#{id}?api_key=#{api_key}")
     res = Net::HTTP.get_response(uri)
