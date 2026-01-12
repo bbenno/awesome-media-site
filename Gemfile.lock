@@ -18,7 +18,7 @@ GEM
     autoprefixer-rails (10.4.21.0)
       execjs (~> 2)
     backports (3.25.0)
-    bootstrap (5.3.5)
+    bootstrap (5.3.8)
       popper_js (>= 2.11.8, < 3)
     coffee-script (2.4.1)
       coffee-script-source
